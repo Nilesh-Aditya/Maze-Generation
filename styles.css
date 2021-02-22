@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-transform: capitalize;
+}
+
+body {
+  font-family: sans-serif;
+  color: white;
+  background: rgb(236, 110, 61);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+header {
+  background: white;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+h3 {
+  padding: 4vh 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 3px 5px black;
+  /* margin-bottom: 10px; */
+  background: white;
+  color: black;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 8px;
+}
+
+ul {
+  width: 12%;
+  padding: auto;
+  text-align: center;
+}
+
+div {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 20%;
+}
+.block,
+.stack,
+.currentElement {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  width: 100%;
+}
+
+.block::before,
+.stack::before,
+.currentElement::before {
+  content: "\2022";
+  color: rgb(119, 0, 255);
+  font-weight: bold;
+  width: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+}
+
+.currentElement::before {
+  color: blue;
+}
+
+.block::before {
+  color: purple;
+}
+
+li {
+  padding: 40px;
+}
+
+a {
+  /* text-decoration: none; */
+  color: white;
+  cursor: pointer;
+}
+
+canvas {
+  /* margin-left: 200px; */
+  width: 68%;
+  border-radius: 5px;
+}
+
+button {
+  background: rgb(62, 158, 82);
+  border: none;
+  color: white;
+  padding: 8px 15px;
+}
+
+a::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "\1F31F";
+  margin: 1em;
+  color: black;
+}
