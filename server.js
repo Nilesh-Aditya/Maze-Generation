@@ -4,7 +4,7 @@ const app = express();
 app.use(express.static(__dirname));
 
 const PORT = process.env.PORT || 4000;
-const server = app.listen(PORT, ()=> console.log('server started on port '+ PORT));
+const server = app.listen(PORT, ()=> console.log(`server started at http://localhost:${PORT}`));
 
 app.get('/', (req, res) => {
     res.sendFile('./index.html');
