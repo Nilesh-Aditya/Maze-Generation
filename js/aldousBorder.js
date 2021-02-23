@@ -14,12 +14,12 @@ function setup() {
 
     for (let j = 0; j < rows; j++) {
         for (let i = 0; i < cols; i++) {
-            let cell = new Kruskal(i, j);
+            let cell = new AldousBorder(i, j);
             grid.push(cell);
         }
     }
 
-    frameRate(5);
+    frameRate(30);
 
     grid[0].visited = true;
     currentGrid = grid[0];
@@ -40,12 +40,13 @@ function draw() {
     if (remaining > 0) {
         let rand = floor(random(0, grid.length));
         currentGrid = grid[rand];
+        if(!currentGrid.visited)
+        currentGrid.visited = true;
         let chosenGrid = currentGrid.checkNeighborElements();
         
         if (chosenGrid) {
             removeWall(currentGrid, chosenGrid);
             chosenGrid.visited = true;
-            currentGrid.visited = true;
             remaining -= 1;
         }
         
@@ -55,7 +56,7 @@ function draw() {
 }
 
 
-class Kruskal{
+class AldousBorder{
     constructor(i, j) {
         this.i = i;
         this.j = j;
