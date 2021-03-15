@@ -21,11 +21,10 @@ function setup() {
 
     frameRate(30);
 
-    grid[0].visited = true;
-    currentGrid = grid[0];
+    grid[50].visited = true;
+    currentGrid = grid[50];
+    remaining -= 1;
 }
-
-
 
 
 function draw() {
@@ -37,20 +36,23 @@ function draw() {
     if (currentGrid) {
         currentGrid.highlight();
     }
-    if (remaining > 0) {
+
+
+    let rand = floor(random(0, grid.length));
+    console.log(rand);
+    let chosenGrid = currentGrid.checkNeighborElements();
+    cnt += 1;
+    if (chosenGrid && !chosenGrid.visited) {
+        removeWall(currentGrid, chosenGrid);
+        chosenGrid.visited = true;
+        currentGrid = chosenGrid;
+        remaining -= 1;
+        cnt = 0;
+    }
+
+    if (cnt >= 4) {
         let rand = floor(random(0, grid.length));
         currentGrid = grid[rand];
-        if(!currentGrid.visited)
-        currentGrid.visited = true;
-        let chosenGrid = currentGrid.checkNeighborElements();
-        
-        if (chosenGrid) {
-            removeWall(currentGrid, chosenGrid);
-            chosenGrid.visited = true;
-            remaining -= 1;
-        }
-        
-        currentGrid = chosenGrid;
     }
 
 }
@@ -60,6 +62,7 @@ class AldousBorder{
     constructor(i, j) {
         this.i = i;
         this.j = j;
+        this.mems = 0;
 
         this.visited = false;
         this.walls = {
@@ -128,6 +131,7 @@ class AldousBorder{
             neighbor.push(left);
         }
         
+        this.mems = neighbor.length;
         if (neighbor.length > 0) {
             let r = floor(random(0, neighbor.length));
             this.neighbors = neighbor.length;
