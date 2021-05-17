@@ -1,8 +1,7 @@
-# IN PROGRESS....
-
 # Maze-Generation
 
 ## 1. npm install
+
 ## 2. npm run start
 
 You will see server started listening on PORT `4000`
